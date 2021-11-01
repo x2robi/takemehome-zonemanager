@@ -22,6 +22,8 @@ export default class {
     }
 
     update(zoneIndex: number): void {
+        if (this.activeZone === zoneIndex) return;
+
         alt.emitServer("zoneManager:leaveZone", this.activeZone);
 
         this.activeZone = zoneIndex;
@@ -36,15 +38,9 @@ export default class {
         const y = (playerPoint.y - this._START_POS.y) / this._size;
 
         if ((x > this._zonesX) || (x < this._zonesX) || (y > this._zonesY) || (y < this._zonesY)) {
-            if (this.activeZone !== -1) {
-                this.update(-1);
-            }
+            this.update(-1);
         } else {
-            const id = this._zonesX * (Math.floor(y) - 1) + Math.floor(x);
-
-            if (this.activeZone !== id) {
-                this.update(id);
-            }
+            this.update(this._zonesX * (Math.floor(y) - 1) + Math.floor(x));   
         }
     }
 }
