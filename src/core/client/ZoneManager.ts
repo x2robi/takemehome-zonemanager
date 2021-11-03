@@ -3,8 +3,8 @@ import alt from "alt-client";
 export default class {
     private _size: number = 50;
 
-    private _END_POS: alt.Vector2;
-    private _START_POS: alt.Vector2;
+    private readonly _END_POS: alt.Vector2;
+    private readonly _START_POS: alt.Vector2;
 
     private readonly _zonesX: number;
     private readonly _zonesY: number;
