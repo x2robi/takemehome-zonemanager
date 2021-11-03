@@ -37,7 +37,7 @@ export default class {
         const x = (playerPoint.x - this._START_POS.x) / this._size;
         const y = (playerPoint.y - this._START_POS.y) / this._size;
 
-        if ((x > this._zonesX) || (x < this._zonesX) || (y > this._zonesY) || (y < this._zonesY)) {
+        if ((x > this._zonesX) || (y > this._zonesY)) {
             this.update(-1);
         } else {
             this.update(this._zonesX * (Math.floor(y) - 1) + Math.floor(x));   
